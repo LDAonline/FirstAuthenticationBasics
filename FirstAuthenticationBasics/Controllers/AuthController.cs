@@ -29,8 +29,16 @@ namespace FirstAuthenticationBasics.Controllers
 				//Supports attaching multiple identitys to a single principal	
 				var principal = new ClaimsPrincipal(identity);
 
+				var props = new AuthenticationProperties
+				{
+					//This is hard coded but this is what the "Remember me" functionality uses
+					IsPersistent = true,
+					ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(10),
+
+				};
+
 				//LEarn about the HttpContext more
-				await HttpContext.SignInAsync(Settings.AuthCookieName, principal); 
+				await HttpContext.SignInAsync(Settings.AuthCookieName, principal, props); 
 			}
 			else
 			{

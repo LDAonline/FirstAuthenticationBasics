@@ -53,5 +53,13 @@ namespace FirstAuthenticationBasics.Controllers
 		{
 			return View();
 		}
+
+		[HttpPost]
+		public async Task<IActionResult> Logout()
+		{
+			await HttpContext.SignOutAsync(Settings.AuthCookieName);
+
+			return RedirectToAction("Index", "Home");
+		}
 	}
 }

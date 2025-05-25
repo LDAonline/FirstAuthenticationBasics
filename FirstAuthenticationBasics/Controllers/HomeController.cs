@@ -15,5 +15,12 @@ namespace FirstAuthenticationBasics.Controllers
         {
             return View();
         }
+
+        [Authorize("Admin")]
+        public IActionResult AdminOnly()
+        {
+            return View();
+        }
     }
+
 }

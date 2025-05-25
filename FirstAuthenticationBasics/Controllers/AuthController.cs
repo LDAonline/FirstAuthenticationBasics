@@ -38,11 +38,12 @@ namespace FirstAuthenticationBasics.Controllers
 				 return View(model);
 			}
 
-
-
-
-
 			return RedirectToAction("Index", "Home");	
 		} 
+
+		public IActionResult Forbidden()
+		{
+			return View();
+		}
 	}
 }

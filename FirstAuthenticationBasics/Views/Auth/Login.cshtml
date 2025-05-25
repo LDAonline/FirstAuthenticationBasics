@@ -1,0 +1,16 @@
+﻿@model FirstAuthenticationBasics.Models.LoginFormModel
+
+<h1>Log In</h1>
+<form asp-action="Login" asp-controller="Auth" method="post">
+	<div>
+		<label asp-for="UserName">UserName</label>
+		<input type="text" asp-for="UserName" />
+	</div>
+
+	<div>
+		<label asp-for="Password">Password</label>
+		<input type="password" asp-for="Password" />
+	</div>
+
+	<button type="submit">Log In</button>
+</form>		

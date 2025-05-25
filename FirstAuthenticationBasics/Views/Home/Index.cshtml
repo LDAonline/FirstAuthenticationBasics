@@ -1,0 +1,31 @@
+﻿<h1>Cookie Authentication</h1>
+
+<p>
+	Currently the user is: @(User.Identity?.Name ?? "Anonymous");
+
+</p>
+
+@if(User.Identity?.IsAuthenticated ?? false)
+{
+	<p>They are authenticated</p>
+}
+else
+{
+	<p>They are <strong>not</strong> authenticated!</p>	
+}
+
+<h2>Claims</h2>
+
+@if (User.Claims.Any())
+{
+	<ul>
+		@foreach (var claim in User.Claims)
+		{
+			<li>@claim.ToString()</li>
+		}
+	</ul>
+}
+else
+{
+	<p>No Claims Found!</p>
+}
